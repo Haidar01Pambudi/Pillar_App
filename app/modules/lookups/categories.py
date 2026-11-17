@@ -1,0 +1,50 @@
+CATEGORIES: dict[str, str] = {
+    "customer": "Customer",
+    "system_type": "System Type",
+    "antenna_position": "Antenna Position",
+    "system_status": "System Status",
+    "server": "Server",
+    "issue_status": "Issue Status",
+    "issue_category": "Issue Category",
+    "issue_priority": "Issue Priority",
+    "release_note_kind": "Release Note Kind",
+}
+
+DEFAULTS: dict[str, list[tuple[str, dict]]] = {
+    "customer": [(v, {}) for v in ["Police", "Kejaksaan RI", "Navy", "Army", "DEMO Unit"]],
+    "system_type": [(v, {}) for v in ["Motorcycles", "Backpack", "Vehicle"]],
+    "antenna_position": [(v, {}) for v in ["Default", "Optimised"]],
+    "system_status": [
+        ("Waiting shipment to Singapore", {"stage": "pre-arrival"}),
+        ("Pre-shipment Inspection", {"stage": "pre-arrival"}),
+        ("Waiting for installation", {"stage": "installation"}),
+        ("Installation", {"stage": "installation"}),
+        ("Inspection in Jakarta", {"stage": "inspection"}),
+        ("Material Check", {"stage": "inspection"}),
+        ("Waiting SAT", {"stage": "sat"}),
+        ("SAT", {"stage": "sat"}),
+        ("Waiting Training", {"stage": "training"}),
+        ("Training", {"stage": "training"}),
+        ("Waiting Delivery", {"stage": "delivery"}),
+        ("Delivered", {"stage": "delivered", "final": True}),
+    ],
+    "server": [(v, {}) for v in ["On-premises", "Cloud"]],
+    "issue_status": [
+        ("Open", {"color": "#d9480f"}),
+        ("Ongoing", {"color": "#1971c2"}),
+        ("Closed", {"closed": True, "color": "#2f9e44"}),
+    ],
+    "issue_category": [(v, {}) for v in ["Hardware", "Software", "Electrical", "Mechanical Motorcycle"]],
+    "issue_priority": [
+        ("Low", {"color": "#868e96"}),
+        ("Medium", {"color": "#1971c2"}),
+        ("High", {"color": "#e8590c"}),
+        ("Critical", {"color": "#c92a2a"}),
+    ],
+    "release_note_kind": [
+        ("Release", {}),
+        ("Bug Fix", {}),
+        ("Known Issue", {}),
+        ("Procedure", {}),
+    ],
+}
